@@ -3,7 +3,7 @@ const Service = require('egg').Service;
 const nodemailer = require('nodemailer');
 const svgCaptcha = require('svg-captcha');
 
-const userEmail = 'xxxx@163.com'; // 个人测试邮箱
+const userEmail = '13829722776@163.com'; // 个人测试邮箱
 const transporter = nodemailer.createTransport({
   service: 'smtp.163.com',
   host: 'smtp.163.com',
@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
   secureConnetion: true,
   auth: {
     user: userEmail,
-    pass: 'xxxx', // 邮箱对应的POP3/SMTP/IMAP 授权码,不是邮箱密码
+    pass: 'liuhao1992', // 邮箱对应的POP3/SMTP/IMAP 授权码,不是邮箱密码
   },
 });
 

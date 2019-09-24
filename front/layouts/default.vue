@@ -163,6 +163,12 @@ export default {
     }
   },
   mounted () {
+    this.getUserInfo()
+  },
+  computed: {
+    userinfo () {
+      return this.$store.state.user
+    }
   },
   methods: {
     openAuth (op) {
@@ -211,6 +217,14 @@ export default {
 
         }
       })
+    },
+    getUserInfo () {
+      // 获取用户个人信息，如果有登录状态
+      let token = localStorage.getItem('USER_TOKEN')
+      if (token) {
+        // let ret = await this.$axios.get('/api/demoinfo')
+        this.$store.dispatch('user/detail')
+      }
     }
   }
 }
