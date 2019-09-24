@@ -10,7 +10,7 @@ module.exports = appInfo => {
    * built-in config
    * @type {Egg.EggAppConfig}
    **/
-  const config = exports = {};
+  const config = (exports = {});
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1568901578106_989';
@@ -26,5 +26,20 @@ module.exports = appInfo => {
   return {
     ...config,
     ...userConfig,
+    // 设置安全威胁csrf的防范
+    security: {
+      csrf: {
+        enable: false,
+      },
+    },
+    mongoose: {
+      client: {
+        url: 'mongodb://127.0.0.1:27017/blog',
+        options: {},
+      },
+    },
+    jwt: {
+      secret: 'xiangliuyunyang personal blog',
+    },
   };
 };
